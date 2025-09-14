@@ -1,0 +1,503 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\Qasim\\Desktop\\Machine Learning Projects\\Titanic ML\\TitanicML\\Data\\titanic_small.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "PassengerId",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Survived",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Pclass",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Name",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Sex",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Age",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "SibSp",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Parch",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Ticket",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Fare",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Cabin",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Embarked",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsMaximumEntropyMulti",
+        "Score": 0.6,
+        "RuntimeInSeconds": 0.223,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e11 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Sex",
+            "OutputColumnName": "Sex"
+          },
+          "e11": {
+            "L1Regularization": 1.0,
+            "L2Regularization": 1.0,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Age",
+            "OutputColumnName": "Age"
+          },
+          "e3": {
+            "InputColumnName": "Fare",
+            "OutputColumnName": "Fare"
+          },
+          "e4": {
+            "InputColumnName": "Embarked",
+            "OutputColumnName": "Embarked"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch",
+              "Sex",
+              "Age",
+              "Fare",
+              "Embarked"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Survived",
+            "InputColumnName": "Survived",
+            "AddKeyValueAnnotationsAsText": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.4,
+        "RuntimeInSeconds": 1.185,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e7 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Sex",
+            "OutputColumnName": "Sex"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Age",
+            "OutputColumnName": "Age"
+          },
+          "e3": {
+            "InputColumnName": "Fare",
+            "OutputColumnName": "Fare"
+          },
+          "e4": {
+            "InputColumnName": "Embarked",
+            "OutputColumnName": "Embarked"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch",
+              "Sex",
+              "Age",
+              "Fare",
+              "Embarked"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Survived",
+            "InputColumnName": "Survived",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e7": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 20,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 254,
+            "FeatureFraction": 1.0,
+            "LearningRate": 0.099999999999999978,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.4,
+        "RuntimeInSeconds": 0.782,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e7 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Sex",
+            "OutputColumnName": "Sex"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Age",
+            "OutputColumnName": "Age"
+          },
+          "e3": {
+            "InputColumnName": "Fare",
+            "OutputColumnName": "Fare"
+          },
+          "e4": {
+            "InputColumnName": "Embarked",
+            "OutputColumnName": "Embarked"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch",
+              "Sex",
+              "Age",
+              "Fare",
+              "Embarked"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Survived",
+            "InputColumnName": "Survived",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e7": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 14,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 269,
+            "FeatureFraction": 0.99999999,
+            "LearningRate": 0.067666808843640985,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.4,
+        "RuntimeInSeconds": 0.782,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e7 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Sex",
+            "OutputColumnName": "Sex"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Age",
+            "OutputColumnName": "Age"
+          },
+          "e3": {
+            "InputColumnName": "Fare",
+            "OutputColumnName": "Fare"
+          },
+          "e4": {
+            "InputColumnName": "Embarked",
+            "OutputColumnName": "Embarked"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch",
+              "Sex",
+              "Age",
+              "Fare",
+              "Embarked"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Survived",
+            "InputColumnName": "Survived",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e7": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 27,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 239,
+            "FeatureFraction": 0.94992449254828026,
+            "LearningRate": 0.14778294071924081,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.4,
+        "RuntimeInSeconds": 0.812,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * e7 * e14",
+          "e0": {
+            "OutputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ],
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch"
+            ]
+          },
+          "e1": {
+            "InputColumnName": "Sex",
+            "OutputColumnName": "Sex"
+          },
+          "e14": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          },
+          "e2": {
+            "InputColumnName": "Age",
+            "OutputColumnName": "Age"
+          },
+          "e3": {
+            "InputColumnName": "Fare",
+            "OutputColumnName": "Fare"
+          },
+          "e4": {
+            "InputColumnName": "Embarked",
+            "OutputColumnName": "Embarked"
+          },
+          "e5": {
+            "InputColumnNames": [
+              "Pclass",
+              "SibSp",
+              "Parch",
+              "Sex",
+              "Age",
+              "Fare",
+              "Embarked"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e6": {
+            "OutputColumnName": "Survived",
+            "InputColumnName": "Survived",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e7": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 18,
+            "NumberOfTrees": 4,
+            "MaximumBinCountPerFeature": 304,
+            "FeatureFraction": 0.96920395838758022,
+            "LearningRate": 0.084931605254785769,
+            "LabelColumnName": "Survived",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "ReplaceMissingValues",
+      "e1": "FeaturizeText",
+      "e2": "FeaturizeText",
+      "e3": "FeaturizeText",
+      "e4": "FeaturizeText",
+      "e5": "Concatenate",
+      "e6": "MapValueToKey",
+      "e7": "FastTreeOva",
+      "e8": "FastForestOva",
+      "e9": "LightGbmMulti",
+      "e10": "LbfgsLogisticRegressionOva",
+      "e11": "LbfgsMaximumEntropyMulti",
+      "e12": "SdcaMaximumEntropyMulti",
+      "e13": "SdcaLogisticRegressionOva",
+      "e14": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * e3 * e4 * e5 * e6 * (e7 + e8 + e9 + e10 + e11 + e12 + e13) * e14",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "C:\\Users\\Qasim\\Desktop\\Machine Learning Projects\\Titanic ML\\TitanicML\\TitanicModel.mbconfig.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 10,
+    "LabelColumn": "Survived",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

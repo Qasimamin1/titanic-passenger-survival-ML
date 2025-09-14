@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TitanicML": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
